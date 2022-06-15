@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import "./HomePage.css";
 
+const google = window.google;
+
 function HomePage() {
 
   useEffect(() => {
+    
+    const sydney = new google.maps.LatLng(-33.867, 151.195);
     console.log("TESTING");
-    console.log("apple");
   }, []);
 
   return (
