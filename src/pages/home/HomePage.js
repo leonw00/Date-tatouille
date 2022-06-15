@@ -5,6 +5,7 @@ function HomePage() {
 
   useEffect(() => {
     console.log("TESTING");
+    console.log("apple");
   }, []);
 
   return (
