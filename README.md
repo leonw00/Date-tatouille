@@ -2,6 +2,22 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisite
+
+To install Yarn if you have installed Node.js:
+
+For Node.js >=v16.10, run this command in an elevated terminal:
+```
+corepack enable
+```
+
+For Node.js <v.16.10, run this command in an elevated terminal:
+```
+npm i -g corepack
+```
+
+Read the [Yarn Installation page](https://yarnpkg.com/getting-started/install) for more information.
+
 ## Available Scripts
 
 In the project directory, you can run:
