@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import "./HomePage.css";
 
 function HomePage() {
+
+  useEffect(() => {
+    console.log("TESTING");
+  }, []);
+
   return (
     <div>
       <form>
