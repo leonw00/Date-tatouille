@@ -19,7 +19,6 @@ function HomePage() {
         <input name="Submit" type="submit"/>
       </form>
 
-      <MapComponent/>
     </div>
   );
 }
