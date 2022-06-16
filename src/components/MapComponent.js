@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   GoogleMap,
   InfoWindow,
   LoadScript,
   Marker,
+  useGoogleMap,
 } from "@react-google-maps/api";
+import { setMap } from "../backend/LogicCalls";
 
+// *******************************
+// Purpose: This will be used to only
+// display the map
+// *******************************
 const MapComponent = () => {
   const initialMarkers = [
     {
@@ -48,24 +54,33 @@ const MapComponent = () => {
   };
 
   return (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}>
-      {markers.map((marker, index) => (
-        <Marker
-          key={index}
-          position={marker.position}
-          label={marker.label}
-          draggable={marker.draggable}
-        >
-          {activeInfoWindow === index && (
-            <InfoWindow position={marker.position}>
-              <b>
-                {marker.position.lat}, {marker.position.lng}
-              </b>
-            </InfoWindow>
-          )}
-        </Marker>
-      ))}
-    </GoogleMap>
+    <div>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={15}
+        onLoad={(map) => {
+          setMap(map);
+        }}
+      >
+        {markers.map((marker, index) => (
+          <Marker
+            key={index}
+            position={marker.position}
+            label={marker.label}
+            draggable={marker.draggable}
+          >
+            {activeInfoWindow === index && (
+              <InfoWindow position={marker.position}>
+                <b>
+                  {marker.position.lat}, {marker.position.lng}
+                </b>
+              </InfoWindow>
+            )}
+          </Marker>
+        ))}
+      </GoogleMap>
+    </div>
   );
 };
 
