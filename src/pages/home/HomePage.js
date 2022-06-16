@@ -1,3 +1,4 @@
+import { nearbySearch } from "../../backend/LogicCalls";
 import MapComponent from "../../components/MapComponent";
 import "./HomePage.css";
 
@@ -11,6 +12,7 @@ function HomePage() {
         <input name="Submit" type="submit" />
       </form>
       <MapComponent/>
+      <button onClick={()=>{nearbySearch()}}>TEST</button>
     </div>
   );
 }

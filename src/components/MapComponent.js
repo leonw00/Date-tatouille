@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   GoogleMap,
   InfoWindow,
-  LoadScript,
   Marker,
-  useGoogleMap,
 } from "@react-google-maps/api";
 import { setMap } from "../backend/LogicCalls";
 
@@ -16,26 +14,10 @@ const MapComponent = () => {
   const initialMarkers = [
     {
       position: {
-        lat: 28.625485,
-        lng: 79.821091,
+        lat: -33.8665433,
+        lng: 151.1956316,
       },
       label: { color: "white", text: "P1" },
-      draggable: true,
-    },
-    {
-      position: {
-        lat: 28.625293,
-        lng: 79.817926,
-      },
-      label: { color: "white", text: "P2" },
-      draggable: false,
-    },
-    {
-      position: {
-        lat: 28.625182,
-        lng: 79.81464,
-      },
-      label: { color: "white", text: "P3" },
       draggable: true,
     },
   ];
@@ -49,8 +31,8 @@ const MapComponent = () => {
   };
 
   const center = {
-    lat: 28.626137,
-    lng: 79.821603,
+    lat: -33.8665433,
+    lng: 151.1956316,
   };
 
   return (
@@ -60,7 +42,7 @@ const MapComponent = () => {
         center={center}
         zoom={15}
         onLoad={(map) => {
-          setMap(map);
+          setMap(map, center);
         }}
       >
         {markers.map((marker, index) => (
