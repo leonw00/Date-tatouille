@@ -1,32 +1,27 @@
 const google = window.google;
+let service;
 
 export function setMap(map, center) {
-  window.localStorage.setItem("google_map", map);
-  window.localStorage.setItem("center_map", center);
-  console.log(map,center);
+  window.localStorage.setItem("center_map", JSON.stringify(center));
+  service = new google.maps.places.PlacesService(map);
 }
 
 export async function nearbySearch() {
-  let map = window.localStorage.getItem("google_map");
-  let center = window.localStorage.getItem("center_map");
-  let service = new google.maps.places.PlacesService(map);
+  let center = JSON.parse(window.localStorage.getItem("center_map"));
 
   var request = {
     location: center,
-    radius: "100",
+    radius: "100000",
     type: ["restaurant"],
   };
-
-  console.log(map, center);
 
   service.nearbySearch(request, callback);
 }
 
-
 function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-        console.log(results[i]);
+      console.log(results[i]);
     }
   }
 }
