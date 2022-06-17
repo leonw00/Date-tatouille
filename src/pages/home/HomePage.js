@@ -1,4 +1,4 @@
-import { nearbySearch } from "../../backend/MapCalls";
+import { nearbySearch } from "../../backend/LogicCalls";
 import MapComponent from "../../components/MapComponent";
 import "./HomePage.css";
 
