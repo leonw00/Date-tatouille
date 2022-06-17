@@ -4,7 +4,7 @@ import {
   InfoWindow,
   Marker,
 } from "@react-google-maps/api";
-import { setMap } from "../backend/LogicCalls";
+import { setMap } from "../backend/MapCalls";
 
 // *******************************
 // Purpose: This will be used to only
