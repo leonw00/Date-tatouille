@@ -19,11 +19,11 @@ export async function nearbySearch() {
 }
 
 function callback(results, status) {
-  let result_array = [];
   if (status === google.maps.places.PlacesServiceStatus.OK) {
+    var result_array = [];
     for (var i = 0; i < results.length; i++) {
       result_array.push(results[i]);
     }
+    window.localStorage.setItem("search_result", JSON.stringify(result_array));
   }
-  window.localStorage.setItem("search_result", JSON.stringify(result_array));
 }
