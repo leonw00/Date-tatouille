@@ -15,7 +15,11 @@ export async function nearbySearch() {
     type: ["restaurant"],
   };
 
-  service.nearbySearch(request, callback);
+  var search_result = service.nearbySearch(request, callback);
+  window.localStorage.setItem("search_result", JSON.stringify(center));
+  var getResult = JSON.parse(window.localStorage.getItem("search_result",));
+  console.log(search_result);
+  console.log(result);
 }
 
 function callback(results, status) {
