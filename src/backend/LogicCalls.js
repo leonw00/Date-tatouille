@@ -15,17 +15,15 @@ export async function nearbySearch() {
     type: ["restaurant"],
   };
 
-  var search_result = service.nearbySearch(request, callback);
-  window.localStorage.setItem("search_result", JSON.stringify(center));
-  var getResult = JSON.parse(window.localStorage.getItem("search_result",));
-  console.log(search_result);
-  console.log(result);
+  service.nearbySearch(request, callback);
 }
 
 function callback(results, status) {
+  let result_array = [];
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-      console.log(results[i]);
+      result_array.push(results[i]);
     }
   }
+  window.localStorage.setItem("search_result", JSON.stringify(result_array));
 }
