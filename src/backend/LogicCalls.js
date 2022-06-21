@@ -20,7 +20,7 @@ let type_locations = [
   "tourist_attraction",
   "zoo",
 ];
-let getNextPage;
+let getNextPage; // function to get the next page of results
 
 export function setMap(map, center) {
   window.localStorage.setItem("center_map", JSON.stringify(center));
@@ -48,7 +48,7 @@ function callback(results, status, pagination) {
     window.localStorage.setItem("search_result", JSON.stringify(result_array));
     console.log(result_array);
   }
-  
+
   // UNTESTED: pagination
   if (pagination && pagination.hasNextPage) {
     getNextPage = () => {
