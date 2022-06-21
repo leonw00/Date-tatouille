@@ -36,10 +36,10 @@ export async function nearbySearch() {
     type: type_locations,
   };
 
-  service.nearbySearch(request, callback);
+  service.nearbySearch(request, nearbySearchCallback);
 }
 
-function callback(results, status, pagination) {
+function nearbySearchCallback(results, status, pagination) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     var result_array = [];
     for (var i = 0; i < results.length; i++) {
