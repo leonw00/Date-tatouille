@@ -56,3 +56,19 @@ function nearbySearchCallback(results, status, pagination) {
     };
   }
 }
+
+export async function placeDetails(placeId) {
+  var request = {
+    placeId: placeId,
+    fields: ["name", "rating", "formatted_phone_number", "geometry"],
+  };
+
+  service.getDetails(request, callback);
+}
+
+
+function callback(place, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+  }
+}
