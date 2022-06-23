@@ -20,3 +20,7 @@ function generateThreeNumbers(maximum) {
   }
   return numbers;
 }
+
+export function getPlaceId(result){
+    return result["place_id"];
+}

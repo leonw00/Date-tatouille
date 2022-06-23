@@ -63,7 +63,7 @@ export async function placeDetails(placeId) {
     fields: ["name", "rating", "formatted_phone_number", "geometry"],
   };
 
-  service.getDetails(request, callback);
+  return service.getDetails(request, callback);
 }
 
 
