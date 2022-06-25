@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const google = window.google;
 let service;
 let type_locations = [
@@ -20,12 +22,27 @@ let type_locations = [
   "tourist_attraction",
   "zoo",
 ];
+let detail_fields = [
+  "name",
+  "geometry",
+  "formatted_address",
+  "photos",
+  "url",
+  "business_status",
+  "formatted_phone_number",
+  "geometry/location",
+  "type",
+  "website",
+  "opening_hours",
+];
 let getNextPage; // function to get the next page of results
+
 
 export function setMap(map, center) {
   window.localStorage.setItem("center_map", JSON.stringify(center));
   service = new google.maps.places.PlacesService(map);
 }
+
 
 export async function nearbySearch() {
   let center = JSON.parse(window.localStorage.getItem("center_map"));
@@ -38,6 +55,7 @@ export async function nearbySearch() {
 
   service.nearbySearch(request, nearbySearchCallback);
 }
+
 
 function nearbySearchCallback(results, status, pagination) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -57,28 +75,49 @@ function nearbySearchCallback(results, status, pagination) {
   }
 }
 
+
 export async function placeDetails(placeId) {
   var request = {
     placeId: placeId,
-    fields: [
-      "name",
-      "geometry",
-      "formatted_address",
-      "photos",
-      "url",
-      "business_status",
-      "formatted_phone_number",
-      "geometry/location",
-      "type",
-      "website",
-      "opening_hours",
-    ],
+    fields: detail_fields,
   };
 
-  return service.getDetails(request, callback);
+  return service.getDetails(request, (place, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+    }
+  });
 }
 
-function callback(place, status) {
-  if (status === google.maps.places.PlacesServiceStatus.OK) {
-  }
+
+export async function nearbyEvents() {
+  var config = {
+    method: "get",
+    url: "https://api.seatgeek.com/2/events?lat=1.20202&lon=30.12314&range=12mi",
+    headers: {},
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+
+export async function eventDetails(eventId) {
+  var config = {
+    method: "get",
+    url: "https://api.seatgeek.com/2/events/" + eventId,
+    headers: {},
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
