@@ -37,12 +37,10 @@ let detail_fields = [
 ];
 let getNextPage; // function to get the next page of results
 
-
 export function setMap(map, center) {
   window.localStorage.setItem("center_map", JSON.stringify(center));
   service = new google.maps.places.PlacesService(map);
 }
-
 
 export async function nearbySearch() {
   let center = JSON.parse(window.localStorage.getItem("center_map"));
@@ -55,7 +53,6 @@ export async function nearbySearch() {
 
   service.nearbySearch(request, nearbySearchCallback);
 }
-
 
 function nearbySearchCallback(results, status, pagination) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -75,7 +72,6 @@ function nearbySearchCallback(results, status, pagination) {
   }
 }
 
-
 export async function placeDetails(placeId) {
   var request = {
     placeId: placeId,
@@ -88,11 +84,11 @@ export async function placeDetails(placeId) {
   });
 }
 
-
 export async function nearbyEvents() {
+  // using geoip (not lon and lat)
   var config = {
     method: "get",
-    url: "https://api.seatgeek.com/2/events?lat=1.20202&lon=30.12314&range=12mi",
+    url: "https://api.seatgeek.com/2/events?client_id=Mjc1OTY3MzZ8MTY1NjExNzY5OS44OTIyNDkz&geoip=98.213.245.205&range=15km",
     headers: {},
   };
 
@@ -104,7 +100,6 @@ export async function nearbyEvents() {
       console.log(error);
     });
 }
-
 
 export async function eventDetails(eventId) {
   var config = {
