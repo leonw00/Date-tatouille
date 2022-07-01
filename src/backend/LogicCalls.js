@@ -15,7 +15,6 @@ let type_locations = [
   "library",
   "movie_theater",
   "museum",
-  "night_club",
   "park",
   "shopping_mall",
   "stadium",
@@ -116,3 +115,4 @@ export async function eventDetails(eventId) {
       console.log(error);
     });
 }
+
