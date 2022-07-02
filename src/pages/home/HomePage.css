@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:wght@300&display=swap');
+
+.theme-lovely {
+    --header-color: #DE7E7E;
+    --background-color: #FBDBEE;
+    --subheader-color: #825E73;
+    --primary-color: #FF99D6;
+    --input-container-bg: #F7F0FB;
+}
+
+.theme-neutral {
+    --header-color: #DE7E7E;
+    --background-color: #F9E1D6;
+    --subheader-color: #82695E;
+    --primary-color: #A7886C;
+    --input-container-bg: #FFF8E5;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-weight: 48;
+    color: var(--header-color);
+    line-height: 0.5;
+}
+
+h4 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 24;
+    color: var(--subheader-color);
+    line-height: 0;
+}
+
+#generate-button {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 430px;
+    height: 50px;
+}
+
+.input-container {
+    background-color: var(--input-container-bg);
+    width: 617px;
+}
