@@ -52,4 +52,7 @@ h4 {
 .input-container {
     background-color: var(--input-container-bg);
     width: 617px;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 15px 10px;
 }
