@@ -40,16 +40,23 @@ function HomePage() {
 
       <div className="input-container">
         <div className="address-input-container">
+<<<<<<< HEAD
           <img className="icon" src={mapMarkerIcon} alt="Map Marker Icon" />
           <input
             id="location-input" 
             className="input"
+=======
+          <i className="fa-solid fa-user"></i>
+          <input
+            id="location-input"
+>>>>>>> 57427af... modify input textbox for address
             placeholder="Enter Your Location"
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
+<<<<<<< HEAD
         <div className="map-placeholder"><MapComponent/></div>
         <div className="input-sub-container">
           <div className="left-wrapper">
@@ -95,6 +102,40 @@ function HomePage() {
               <p className="input">{outputBoolean(outdoor)}</p>
             </div>
           </div>
+=======
+
+        <div className="map-placeholder">Placeholder for map</div>
+        <p>Range</p>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          className="slider"
+          defaultValue={range}
+          onMouseUp={(e) => setRange(e.target.value)}
+        />
+        <div>
+          <p>Indoor</p>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={indoor}
+              onChange={(e) => setIndoor(e.target.checked)}
+            />
+            <span className="slider-round"></span>
+          </label>
+        </div>
+        <div>
+          <p>Outdoor</p>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={outdoor}
+              onChange={(e) => setOutdoor(e.target.checked)}
+            />
+            <span className="slider-round"></span>
+          </label>
+>>>>>>> 57427af... modify input textbox for address
         </div>
         <button
           id="generate-button"
