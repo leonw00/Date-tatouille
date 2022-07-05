@@ -7,7 +7,10 @@ import { setMap } from "../backend/LogicCalls";
 // display the map
 // *******************************
 const MapComponent = () => {
-  const [mapPosition, setMapPosition] = useState({});
+  const [mapPosition, setMapPosition] = useState({
+    lat: -33.8665433,
+    lng: 151.1956316,
+  });
   const [activeInfoWindow, setActiveInfoWindow] = useState("");
   const [markers, setMarkers] = useState(initialMarkers);
 
@@ -35,19 +38,14 @@ const MapComponent = () => {
     height: "400px",
   };
 
-  const center = {
-    lat: -33.8665433,
-    lng: 151.1956316,
-  };
-
   return (
     <div>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={mapPosition}
         zoom={15}
         onLoad={(map) => {
-          setMap(map, center);
+          setMap(map, mapPosition);
         }}
       >
         {markers.map((marker, index) => (
