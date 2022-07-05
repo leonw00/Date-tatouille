@@ -31,14 +31,19 @@ function HomePage() {
         We help generate date ideas for you, just like Remy helping Linguini in
         Ratatouille!
       </h4>
+
       <div className="input-container">
-        <input
-          id="location-input"
-          placeholder="Enter Your Location"
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
+        <div className="address-input-container">
+          <i className="fa-solid fa-user"></i>
+          <input
+            id="location-input"
+            placeholder="Enter Your Location"
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+
         <div className="map-placeholder">Placeholder for map</div>
         <p>Range</p>
         <input
@@ -61,15 +66,15 @@ function HomePage() {
           </label>
         </div>
         <div>
-        <p>Outdoor</p>
-        <label className="switch">
-          <input
-            type="checkbox"
-            checked={outdoor}
-            onChange={(e) => setOutdoor(e.target.checked)}
-          />
-          <span className="slider-round"></span>
-        </label>
+          <p>Outdoor</p>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={outdoor}
+              onChange={(e) => setOutdoor(e.target.checked)}
+            />
+            <span className="slider-round"></span>
+          </label>
         </div>
         <button
           id="generate-button"
