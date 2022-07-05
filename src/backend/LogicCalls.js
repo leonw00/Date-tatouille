@@ -36,6 +36,15 @@ let detail_fields = [
 ];
 let getNextPage; // function to get the next page of results
 
+export function getCurrentLocation(){
+  navigator.geolocation.getCurrentPosition(function(position) {
+    window.localStorage.setItem("current_latitude", position.coords.latitude);
+    window.localStorage.setItem("current_longitude", position.coords.longitude);
+    console.log("Latitude is :", position.coords.longitude);
+    console.log("Longitude is :", position.coords.longitude);
+  });
+}
+
 export function setMap(map, center) {
   window.localStorage.setItem("center_map", JSON.stringify(center));
   service = new google.maps.places.PlacesService(map);
