@@ -21,6 +21,10 @@ function generateThreeNumbers(maximum) {
   return numbers;
 }
 
+function parseLocation(location){
+  return location
+}
+
 export function getPlaceId(result){
     return result["place_id"];
 }

@@ -1,6 +1,6 @@
-import { nearbySearch } from "../../backend/LogicCalls";
+import { getCurrentLocation, nearbySearch } from "../../backend/LogicCalls";
 import MapComponent from "../../components/MapComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./HomePage.css";
 
 function HomePage() {
@@ -8,6 +8,10 @@ function HomePage() {
   const [range, setRange] = useState(50);
   const [indoor, setIndoor] = useState(true);
   const [outdoor, setOutdoor] = useState(false);
+
+  useEffect(() => {
+    getCurrentLocation();
+  }, []);
 
   if (localStorage.getItem("theme") === "theme-neutral") {
     setTheme("theme-neutral");

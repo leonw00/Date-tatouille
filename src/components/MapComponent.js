@@ -1,9 +1,5 @@
-import React, { useState } from "react";
-import {
-  GoogleMap,
-  InfoWindow,
-  Marker,
-} from "@react-google-maps/api";
+import React, { useEffect, useState } from "react";
+import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { setMap } from "../backend/LogicCalls";
 
 // *******************************
@@ -11,38 +7,45 @@ import { setMap } from "../backend/LogicCalls";
 // display the map
 // *******************************
 const MapComponent = () => {
+  const [mapPosition, setMapPosition] = useState({
+    lat: -33.8665433,
+    lng: 151.1956316,
+  });
+  const [activeInfoWindow, setActiveInfoWindow] = useState("");
+  const [markers, setMarkers] = useState(initialMarkers);
+
+  useEffect(() => {
+    var longitude = window.localStorage.getItem("current_longitude");
+    var latitude = window.localStorage.getItem("current_latitude");
+    if(longitude && latitude){
+      mapPosition = {
+        lat: latitude,
+        lng: longitude,
+      };
+    }
+  }, []);
+
   const initialMarkers = [
     {
-      position: {
-        lat: -33.8665433,
-        lng: 151.1956316,
-      },
+      position: mapPosition,
       label: { color: "white", text: "P1" },
       draggable: true,
     },
   ];
-
-  const [activeInfoWindow, setActiveInfoWindow] = useState("");
-  const [markers, setMarkers] = useState(initialMarkers);
 
   const containerStyle = {
     width: "100%",
     height: "400px",
   };
 
-  const center = {
-    lat: -33.8665433,
-    lng: 151.1956316,
-  };
-
   return (
     <div>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={mapPosition}
         zoom={15}
         onLoad={(map) => {
-          setMap(map, center);
+          setMap(map, mapPosition);
         }}
       >
         {markers.map((marker, index) => (
