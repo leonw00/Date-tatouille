@@ -40,6 +40,8 @@ export function getCurrentLocation(){
   navigator.geolocation.getCurrentPosition(function(position) {
     window.localStorage.setItem("current_latitude", position.coords.latitude);
     window.localStorage.setItem("current_longitude", position.coords.longitude);
+    console.log("Latitude is :", position.coords.longitude);
+    console.log("Longitude is :", position.coords.longitude);
   });
 }
 
