@@ -22,7 +22,7 @@ function generateThreeNumbers(maximum) {
 }
 
 function parseLocation(location){
-  return location
+  return location;
 }
 
 export function getPlaceId(result){
