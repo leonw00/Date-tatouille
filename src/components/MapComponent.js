@@ -31,7 +31,6 @@ const MapComponent = () => {
   };
 
   return (
-    <div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapPosition}
@@ -46,7 +45,6 @@ const MapComponent = () => {
           draggable={true}
         ></Marker>
       </GoogleMap>
-    </div>
   );
 };
 
