@@ -104,7 +104,7 @@ function HomePage() {
           </div>
 =======
 
-        <div className="map-placeholder">Placeholder for map</div>
+        <div className="map-placeholder"><MapComponent/></div>
         <p>Range</p>
         <input
           type="range"
