@@ -1,16 +1,11 @@
-import getNextPage from "./LogicCalls";
 
 export function generateLocations() {
   var locations = [];
   var search_result = JSON.parse(window.localStorage.getItem("search_result"));
-  for(number in generateThreeNumbers(search_result.length)){
+  for(var number in generateThreeNumbers(search_result.length)){
       locations.push(search_result[number]);
   }
   return locations;
-}
-
-export function reRollLocations(){
-  getNextPage();
 }
 
 // ********************

@@ -50,7 +50,7 @@ function HomePage() {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        <div className="map-placeholder"><MapComponent/></div>
+        <div className="map-placeholder"> <MapComponent/> </div>
         <div className="input-sub-container">
           <div className="left-wrapper">
             <p className="input">Radius</p>
@@ -99,8 +99,8 @@ function HomePage() {
         <button
           id="generate-button"
           // disable the button for now
-          onClick={() => {
-            nearbySearch(location, range, indoor, outdoor);
+          onClick={async () => {
+            await nearbySearch();
           }}
         >
           Generate Date Ideas!
