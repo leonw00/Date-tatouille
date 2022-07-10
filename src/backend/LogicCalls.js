@@ -34,10 +34,13 @@ let detail_fields = [
   "website",
   "opening_hours",
 ];
-let getNextPage; // function to get the next page of results
 
-export function getCurrentLocation(){
-  navigator.geolocation.getCurrentPosition(function(position) {
+// function to get the next page of results
+let getNextPage;
+export default getNextPage;
+
+export function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(function (position) {
     window.localStorage.setItem("current_latitude", position.coords.latitude);
     window.localStorage.setItem("current_longitude", position.coords.longitude);
   });
@@ -73,7 +76,8 @@ function nearbySearchCallback(results, status, pagination) {
   // UNTESTED: pagination
   if (pagination && pagination.hasNextPage) {
     getNextPage = () => {
-      pagination.nextPage();
+      let page = pagination.nextPage();
+      console.log(page);
     };
   }
 }
@@ -122,4 +126,3 @@ export async function eventDetails(eventId) {
       console.log(error);
     });
 }
-

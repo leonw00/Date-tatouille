@@ -1,3 +1,5 @@
+import getNextPage from "./LogicCalls";
+
 export function generateLocations() {
   var locations = [];
   var search_result = JSON.parse(window.localStorage.getItem("search_result"));
@@ -5,6 +7,10 @@ export function generateLocations() {
       locations.push(search_result[number]);
   }
   return locations;
+}
+
+export function reRollLocations(){
+  getNextPage();
 }
 
 // ********************
