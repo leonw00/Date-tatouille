@@ -35,9 +35,6 @@ let detail_fields = [
   "opening_hours",
 ];
 
-// function to get the next page of results
-let getNextPage;
-export default getNextPage;
 
 export function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(function (position) {
@@ -71,14 +68,6 @@ function nearbySearchCallback(results, status, pagination) {
     }
     window.localStorage.setItem("search_result", JSON.stringify(result_array));
     console.log(result_array);
-  }
-
-  // UNTESTED: pagination
-  if (pagination && pagination.hasNextPage) {
-    getNextPage = () => {
-      let page = pagination.nextPage();
-      console.log(page);
-    };
   }
 }
 
