@@ -34,11 +34,13 @@ let detail_fields = [
   "website",
   "opening_hours",
 ];
-let getNextPage; // function to get the next page of results
+
+// function to get the next page of results
+let getNextPage;
 export default getNextPage;
 
-export function getCurrentLocation(){
-  navigator.geolocation.getCurrentPosition(function(position) {
+export function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(function (position) {
     window.localStorage.setItem("current_latitude", position.coords.latitude);
     window.localStorage.setItem("current_longitude", position.coords.longitude);
   });
@@ -124,4 +126,3 @@ export async function eventDetails(eventId) {
       console.log(error);
     });
 }
-
