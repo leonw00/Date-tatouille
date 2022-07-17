@@ -23,20 +23,24 @@ function HomePage() {
 
   return (
     <div>
-      <button
-        id="toggle-theme"
-        // disable the button for now
-        onClick={() => {
-          toggleTheme();
-        }}
-      >
-        Switch Theme
-      </button>
-      <h1>Date-tatouille</h1>
-      <h4>
-        We help generate date ideas for you, just like Remy helping Linguini in
-        Ratatouille!
-      </h4>
+      <div>
+        <button
+          id="toggle-theme"
+          onClick={() => {
+            toggleTheme();
+          }}
+        >
+          Switch Theme
+        </button>
+      </div>
+      
+      <div>
+        <h1>Date-tatouille</h1>
+        <h4>
+          We help generate date ideas for you, just like Remy helping Linguini in
+          Ratatouille!
+        </h4>
+      </div>
 
       <div className="input-container">
         <div className="address-input-container">
@@ -98,7 +102,6 @@ function HomePage() {
         </div>
         <button
           id="generate-button"
-          // disable the button for now
           onClick={async () => {
             await nearbySearch();
           }}
@@ -106,6 +109,7 @@ function HomePage() {
           Generate Date Ideas!
         </button>
       </div>
+      <div className="input-container-shadow"></div>
     </div>
   );
 }
