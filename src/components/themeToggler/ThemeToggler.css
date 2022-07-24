@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:wght@300&display=swap");
+
+#toggle-theme {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  background-color: var(--subheader-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+}

@@ -1,0 +1,13 @@
+.card-container {
+  background: var(--card-bg);
+  width: 380px;
+  height: 440px;
+  border-radius: 20px;
+}
+
+.card-shadow {
+  background: var(--card-shadow);
+  width: 380px;
+  height: 440px;
+  border-radius: 20px;
+}
