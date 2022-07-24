@@ -1,8 +1,12 @@
 import { getCurrentLocation, nearbySearch } from "../../backend/LogicCalls";
 import MapComponent from "../../components/MapComponent";
+import TitleComponent from "../../components/title/TitleComponent";
+import ThemeToggler from "../../components/themeToggler/ThemeToggler";
 import { useEffect, useState } from "react";
 import "./HomePage.css";
 import mapMarkerIcon from "../../assets/icons/mapMarker.png";
+import { useNavigate } from "react-router-dom";
+import { setCurrentTheme } from "../../util/ThemeController.js"
 
 function HomePage() {
   const [location, setLocation] = useState("");
@@ -10,37 +14,23 @@ function HomePage() {
   const [rangeSelection, setRangeSelection] = useState(50);
   const [indoor, setIndoor] = useState(true);
   const [outdoor, setOutdoor] = useState(false);
+  
 
   useEffect(() => {
     getCurrentLocation();
   }, []);
 
-  if (localStorage.getItem("theme") === "theme-neutral") {
-    setTheme("theme-neutral");
-  } else {
-    setTheme("theme-lovely");
+  setCurrentTheme();
+
+  let navigate = useNavigate();
+  function handleGeneratedClick() {
+    navigate("/generated");
   }
 
   return (
     <div>
-      <div>
-        <button
-          id="toggle-theme"
-          onClick={() => {
-            toggleTheme();
-          }}
-        >
-          Switch Theme
-        </button>
-      </div>
-      
-      <div>
-        <h1>Date-tatouille</h1>
-        <h4>
-          We help generate date ideas for you, just like Remy helping Linguini in
-          Ratatouille!
-        </h4>
-      </div>
+      <ThemeToggler/>
+      <TitleComponent/>
 
       <div className="input-container">
         <div className="address-input-container">
@@ -54,7 +44,7 @@ function HomePage() {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        <div className="map-placeholder"> <MapComponent/> </div>
+        <div className="map-placeholder"><MapComponent/></div>
         <div className="input-sub-container">
           <div className="left-wrapper">
             <p className="input">Radius</p>
@@ -100,11 +90,14 @@ function HomePage() {
             </div>
           </div>
         </div>
+        
         <button
           id="generate-button"
-          onClick={async () => {
-            await nearbySearch();
-          }}
+          onClick={ handleGeneratedClick
+            //async () => {
+            // await nearbySearch();
+            //}
+          }
         >
           Generate Date Ideas!
         </button>
@@ -112,21 +105,6 @@ function HomePage() {
       <div className="input-container-shadow"></div>
     </div>
   );
-}
-
-// function to set a given theme/color-scheme
-function setTheme(themeName) {
-  localStorage.setItem("theme", themeName);
-  document.documentElement.className = themeName;
-}
-
-// function to toggle between light and dark theme
-function toggleTheme() {
-  if (localStorage.getItem("theme") === "theme-lovely") {
-    setTheme("theme-neutral");
-  } else {
-    setTheme("theme-lovely");
-  }
 }
 
 function outputBoolean(bool) {

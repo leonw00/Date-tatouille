@@ -8,6 +8,8 @@
   --primary-color: #ff99d6;
   --input-container-bg: #f7f0fb;
   --input-container-shadow-bg: #D8B7E8;
+  --card-bg: #D3A6E9;
+  --card-shadow: #E9D0F5;
 }
 
 .theme-neutral {
@@ -17,6 +19,8 @@
   --primary-color: #a7886c;
   --input-container-bg: #fff8e5;
   --input-container-shadow-bg: #A2AF8C;
+  --card-bg: #94A37C;
+  --card-shadow: #CBD2BF;
 }
 
 body {
@@ -33,20 +37,6 @@ body {
   color: white;
   border: none;
   border-radius: 20px;
-}
-
-h1 {
-  font-family: "Lobster", cursive;
-  font-weight: 48;
-  color: var(--header-color);
-  line-height: 0.5;
-}
-
-h4 {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 24;
-  color: var(--subheader-color);
-  line-height: 0;
 }
 
 #generate-button {
