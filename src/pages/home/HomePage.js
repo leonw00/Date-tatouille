@@ -44,8 +44,7 @@ function HomePage() {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        {/* <MapComponent/> */}
-        <div className="map-placeholder"></div>
+        <div className="map-placeholder"><MapComponent/></div>
         <div className="input-sub-container">
           <div className="left-wrapper">
             <p className="input">Radius</p>
