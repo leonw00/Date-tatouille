@@ -7,7 +7,9 @@ function GeneratedPage() {
     <div>
       <ThemeToggler />
       <TitleComponent />
-      <GeneratedCard/>
+      <GeneratedCard category="Grab a bite" place="Kawaii Crepe" price="$" desc="yumm"/>
+      <GeneratedCard category="Grab a bite" place="Kawaii Crepe" price="$" desc="yumm"/>
+      <GeneratedCard category="Grab a bite" place="Kawaii Crepe" price="$" desc="yumm"/>
     </div>
   );
 }
