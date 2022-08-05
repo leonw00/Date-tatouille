@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:wght@300&display=swap");
+
 .card-container {
   background: var(--card-bg);
   width: 380px;
   height: 440px;
   border-radius: 20px;
+  position: absolute;
+  z-index: 5;
+  margin-top: -30px;
 }
 
 .card-shadow {
@@ -10,4 +16,13 @@
   width: 380px;
   height: 440px;
   border-radius: 20px;
+  z-index: 3;
+  margin-left: 30px;
+  margin-top: 70px;
+}
+
+.category {
+  font-family: "Lobster", cursive;
+  font-weight: 48;
+  color: var(--header-color);
 }
