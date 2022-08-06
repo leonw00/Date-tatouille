@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import "./HomePage.css";
 import mapMarkerIcon from "../../assets/icons/mapMarker.png";
 import { useNavigate } from "react-router-dom";
-import { setCurrentTheme } from "../../util/ThemeController.js"
+import { setCurrentTheme } from "../../util/ThemeController.js";
 
 function HomePage() {
   const [location, setLocation] = useState("");
@@ -14,7 +14,6 @@ function HomePage() {
   const [rangeSelection, setRangeSelection] = useState(50);
   const [indoor, setIndoor] = useState(true);
   const [outdoor, setOutdoor] = useState(false);
-  
 
   useEffect(() => {
     getCurrentLocation();
@@ -24,19 +23,25 @@ function HomePage() {
 
   let navigate = useNavigate();
   function handleGeneratedClick() {
+    // error handling
+    if (!(indoor || outdoor)) {
+      // no indoor or outdoor
+    } else if (location.length === 0) {
+      // no location as input
+    }
     navigate("/generated");
   }
 
   return (
     <div>
-      <ThemeToggler/>
-      <TitleComponent/>
+      <ThemeToggler />
+      <TitleComponent />
 
       <div className="input-container">
         <div className="address-input-container">
           <img className="icon" src={mapMarkerIcon} alt="Map Marker Icon" />
           <input
-            id="location-input" 
+            id="location-input"
             className="input"
             placeholder="Enter Your Location"
             type="text"
@@ -44,7 +49,7 @@ function HomePage() {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        <div className="map-placeholder"><MapComponent/></div>
+        <div className="map-placeholder">{/* <MapComponent /> */}</div>
         <div className="input-sub-container">
           <div className="left-wrapper">
             <p className="input">Radius</p>
@@ -90,13 +95,14 @@ function HomePage() {
             </div>
           </div>
         </div>
-        
+
         <button
           id="generate-button"
-          onClick={ handleGeneratedClick
-            //async () => {
-            // await nearbySearch();
-            //}
+          onClick={
+            handleGeneratedClick
+            // async () => {
+            //   await nearbySearch();
+            // }
           }
         >
           Generate Date Ideas!
@@ -108,7 +114,9 @@ function HomePage() {
 }
 
 function outputBoolean(bool) {
-  return (bool) ? "Yes":"No";
+  return bool ? "Yes" : "No";
 }
 
 export default HomePage;
+
+//
