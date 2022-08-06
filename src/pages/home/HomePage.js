@@ -49,7 +49,7 @@ function HomePage() {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        <div className="map-placeholder">{/* <MapComponent /> */}</div>
+        <div className="map-placeholder"><MapComponent /></div>
         <div className="input-sub-container">
           <div className="left-wrapper">
             <p className="input">Radius</p>
@@ -98,12 +98,10 @@ function HomePage() {
 
         <button
           id="generate-button"
-          onClick={
-            handleGeneratedClick
-            // async () => {
-            //   await nearbySearch();
-            // }
-          }
+          onClick={async () => {
+            // handleGeneratedClick();
+            await nearbySearch();
+          }}
         >
           Generate Date Ideas!
         </button>
@@ -118,4 +116,3 @@ function outputBoolean(bool) {
 }
 
 export default HomePage;
-

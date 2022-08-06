@@ -29,3 +29,13 @@ function parseLocation(location){
 export function getPlaceId(result){
     return result["place_id"];
 }
+
+export function parseData(result){
+  return {
+    id: result.place_id,
+    name: result.name,
+    rating: result.rating,
+    total_ratings: result.user_ratings_total,
+    image: result.photos[0].html_attributions[0],
+  }
+}
