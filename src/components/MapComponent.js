@@ -6,7 +6,7 @@ import { setMap } from "../backend/LogicCalls";
 // Purpose: This will be used to only
 // display the map
 // *******************************
-const MapComponent = () => {
+const MapComponent = (lat, lng) => {
   var [mapPosition, setMapPosition] = useState({
     lat: -33.8665433,
     lng: 151.1956316,

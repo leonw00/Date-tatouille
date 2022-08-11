@@ -36,10 +36,23 @@ let detail_fields = [
 ];
 
 export function getCurrentLocation() {
+  var latitude, longitude;
   navigator.geolocation.getCurrentPosition(function (position) {
-    window.localStorage.setItem("current_latitude", position.coords.latitude);
-    window.localStorage.setItem("current_longitude", position.coords.longitude);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    window.localStorage.setItem("current_latitude", latitude);
+    window.localStorage.setItem("current_longitude", longitude);
   });
+  return {lat: latitude, lng: longitude};
+}
+
+export function setAutoCompleteLocation(lat, lng) {
+  window.localStorage.setItem("center_map", {
+    lat: lat,
+    lng: lng,
+  });
+  window.localStorage.setItem("current_latitude", lat);
+  window.localStorage.setItem("current_longitude", lng);
 }
 
 export function setAutoCompleteLocation(lat, lng) {
