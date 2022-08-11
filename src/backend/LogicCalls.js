@@ -44,7 +44,6 @@ export function getCurrentLocation() {
     window.localStorage.setItem("current_longitude", longitude);
   });
   return {lat: latitude, lng: longitude};
-<<<<<<< HEAD
 }
 
 export function setAutoCompleteLocation(lat, lng) {
@@ -54,8 +53,6 @@ export function setAutoCompleteLocation(lat, lng) {
   });
   window.localStorage.setItem("current_latitude", lat);
   window.localStorage.setItem("current_longitude", lng);
-=======
->>>>>>> 7384de6... added toast to error handling
 }
 
 export function setAutoCompleteLocation(lat, lng) {
