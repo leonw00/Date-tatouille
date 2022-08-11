@@ -35,12 +35,20 @@ let detail_fields = [
   "opening_hours",
 ];
 
-
 export function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(function (position) {
     window.localStorage.setItem("current_latitude", position.coords.latitude);
     window.localStorage.setItem("current_longitude", position.coords.longitude);
   });
+}
+
+export function setAutoCompleteLocation(lat, lng) {
+  window.localStorage.setItem("center_map", {
+    lat: lat,
+    lng: lng,
+  });
+  window.localStorage.setItem("current_latitude", lat);
+  window.localStorage.setItem("current_longitude", lng);
 }
 
 export function setMap(map, center) {

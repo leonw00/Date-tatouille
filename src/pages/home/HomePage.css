@@ -98,7 +98,7 @@ body {
   border: none;
 }
 
-.input {
+.input-autocomplete {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
   color: var(--subheader-color);

@@ -1,4 +1,8 @@
-import { getCurrentLocation, nearbySearch } from "../../backend/LogicCalls";
+import {
+  getCurrentLocation,
+  nearbySearch,
+  setAutoCompleteLocation,
+} from "../../backend/LogicCalls";
 import MapComponent from "../../components/MapComponent";
 import TitleComponent from "../../components/title/TitleComponent";
 import ThemeToggler from "../../components/themeToggler/ThemeToggler";
@@ -7,6 +11,7 @@ import "./HomePage.css";
 import mapMarkerIcon from "../../assets/icons/mapMarker.png";
 import { useNavigate } from "react-router-dom";
 import { setCurrentTheme } from "../../util/ThemeController.js";
+import Autocomplete from "react-google-autocomplete";
 
 function HomePage() {
   const [location, setLocation] = useState("");
@@ -40,16 +45,43 @@ function HomePage() {
       <div className="input-container">
         <div className="address-input-container">
           <img className="icon" src={mapMarkerIcon} alt="Map Marker Icon" />
-          <input
+          <Autocomplete
+            style={{
+              fontFamily: "Roboto Condensed",
+              fontWeight: "bold",
+              color: "black",
+              fontSize: "1.2rem",
+              width: "100%",
+              height: "30px",
+              padding: "4px 12px",
+              background: "none",
+              outline: "none",
+              border: "none",
+              letterSpacing: "0.7px",
+            }}
+            onPlaceSelected={(place) => {
+              setAutoCompleteLocation(
+                place.geometry.location.lat(),
+                place.geometry.location.lng()
+              );
+              setLocation(place.formatted_address);
+            }}
+            options={{
+              types: ["address"],
+            }}
+          />
+          {/* <input
             id="location-input"
-            className="input"
+            className="input-autocomplete"
             placeholder="Enter Your Location"
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-          />
+          /> */}
         </div>
-        <div className="map-placeholder"><MapComponent /></div>
+        <div className="map-placeholder">
+          <MapComponent />
+        </div>
         <div className="input-sub-container">
           <div className="left-wrapper">
             <p className="input">Radius</p>
