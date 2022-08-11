@@ -12,6 +12,7 @@ import mapMarkerIcon from "../../assets/icons/mapMarker.png";
 import { useNavigate } from "react-router-dom";
 import { setCurrentTheme } from "../../util/ThemeController.js";
 import Autocomplete from "react-google-autocomplete";
+import toast, { Toaster } from "react-hot-toast";
 
 function HomePage() {
   const [location, setLocation] = useState("");
@@ -19,9 +20,13 @@ function HomePage() {
   const [rangeSelection, setRangeSelection] = useState(50);
   const [indoor, setIndoor] = useState(true);
   const [outdoor, setOutdoor] = useState(false);
+  const [longitude, setLongitude] = useState(null);
+  const [latitude, setLatitude] = useState(null);
 
   useEffect(() => {
-    getCurrentLocation();
+    var coordinates = getCurrentLocation();
+    setLatitude(coordinates.lat);
+    setLongitude(coordinates.lng);
   }, []);
 
   setCurrentTheme();
@@ -31,14 +36,32 @@ function HomePage() {
     // error handling
     if (!(indoor || outdoor)) {
       // no indoor or outdoor
+      toast.error("Need either Indoor or Outdoor", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     } else if (location.length === 0) {
       // no location as input
+      toast.error("Need to input location", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     }
     navigate("/generated");
   }
 
   return (
     <div>
+      <div>
+        <Toaster />
+      </div>
+
       <ThemeToggler />
       <TitleComponent />
 
@@ -53,7 +76,7 @@ function HomePage() {
               fontSize: "1.2rem",
               width: "100%",
               height: "30px",
-              padding: "4px 12px",
+              padding: "4px 10px",
               background: "none",
               outline: "none",
               border: "none",
@@ -64,6 +87,8 @@ function HomePage() {
                 place.geometry.location.lat(),
                 place.geometry.location.lng()
               );
+              setLatitude(place.geometry.location.lat());
+              setLongitude(place.geometry.location.lng());
               setLocation(place.formatted_address);
             }}
             options={{
@@ -80,7 +105,7 @@ function HomePage() {
           /> */}
         </div>
         <div className="map-placeholder">
-          <MapComponent />
+          <MapComponent lat={latitude} lng={longitude} />
         </div>
         <div className="input-sub-container">
           <div className="left-wrapper">
