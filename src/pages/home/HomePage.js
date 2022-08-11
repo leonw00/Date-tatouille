@@ -148,3 +148,5 @@ function outputBoolean(bool) {
 }
 
 export default HomePage;
+
+//
