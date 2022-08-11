@@ -55,15 +55,6 @@ export function setAutoCompleteLocation(lat, lng) {
   window.localStorage.setItem("current_longitude", lng);
 }
 
-export function setAutoCompleteLocation(lat, lng) {
-  window.localStorage.setItem("center_map", {
-    lat: lat,
-    lng: lng,
-  });
-  window.localStorage.setItem("current_latitude", lat);
-  window.localStorage.setItem("current_longitude", lng);
-}
-
 export function setMap(map, center) {
   window.localStorage.setItem("center_map", JSON.stringify(center));
   service = new google.maps.places.PlacesService(map);
