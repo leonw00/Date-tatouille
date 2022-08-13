@@ -8,7 +8,13 @@
   border-radius: 20px;
   position: absolute;
   z-index: 5;
-  margin-top: -30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.card-container:hover {
+  background: var(--primary-color);
+  border: 10px solid var(----primary-color);
 }
 
 .card-shadow {
@@ -18,11 +24,31 @@
   border-radius: 20px;
   z-index: 3;
   margin-left: 30px;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .category {
   font-family: "Lobster", cursive;
   font-weight: 48;
   color: var(--header-color);
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+.place {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+
+.desc {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  margin: 0px 20px;
+}
+
+.image-placeholder {
+  background: lightgray;
+  width: 300px;
+  height: 125px;
+  margin-left: 40px;
+  border: 0.5px solid rgba(192, 212, 245, 0.801);
 }
