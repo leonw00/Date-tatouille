@@ -52,8 +52,9 @@ function HomePage() {
           color: "#fff",
         },
       });
+    } else {
+      navigate("/generated");
     }
-    navigate("/generated");
   }
 
   return (
@@ -156,8 +157,8 @@ function HomePage() {
         <button
           id="generate-button"
           onClick={async () => {
-            // handleGeneratedClick();
-            await nearbySearch();
+            handleGeneratedClick();
+            // await nearbySearch();
           }}
         >
           Generate Date Ideas!

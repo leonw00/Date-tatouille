@@ -11,14 +11,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-google-autocomplete": "^2.7.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "react-hot-toast": "^2.3.0",
-=======
->>>>>>> a81f73a... added autocomplete
-=======
-    "react-hot-toast": "^2.3.0",
->>>>>>> 7384de6... added toast to error handling
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.0"
