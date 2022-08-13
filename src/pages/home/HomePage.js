@@ -53,9 +53,9 @@ function HomePage() {
         },
       });
     } 
-    // else {
+    else {
       navigate("/generated");
-    // }
+    }
   }
 
   return (
