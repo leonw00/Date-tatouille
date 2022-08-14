@@ -52,9 +52,10 @@ function HomePage() {
           color: "#fff",
         },
       });
-    } else {
+    } 
+    // else {
       navigate("/generated");
-    }
+    // }
   }
 
   return (
