@@ -1,4 +1,5 @@
 import axios from "axios";
+import Geocode from "react-geocode";
 
 const google = window.google;
 let service;
@@ -36,14 +37,24 @@ let detail_fields = [
 ];
 
 export function getCurrentLocation() {
-  var latitude, longitude;
+  var latitude, longitude, address;
   navigator.geolocation.getCurrentPosition(function (position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     window.localStorage.setItem("current_latitude", latitude);
     window.localStorage.setItem("current_longitude", longitude);
+    Geocode.fromLatLng(latitude, longitude).then(
+      (response) => {
+        address = response.results[0].formatted_address;
+        console.log(address);
+        console.log(longitude + " ||| " + latitude);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   });
-  return {lat: latitude, lng: longitude};
+  return {lat: latitude, lng: longitude, address: address};
 }
 
 export function setAutoCompleteLocation(lat, lng) {

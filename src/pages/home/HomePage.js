@@ -24,9 +24,10 @@ function HomePage() {
   const [latitude, setLatitude] = useState(null);
 
   useEffect(() => {
-    var coordinates = getCurrentLocation();
-    setLatitude(coordinates.lat);
-    setLongitude(coordinates.lng);
+    var curr_loc_result = getCurrentLocation();
+    setLatitude(curr_loc_result.lat);
+    setLongitude(curr_loc_result.lng);
+    setLocation(curr_loc_result.address);
   }, []);
 
   setCurrentTheme();
@@ -52,8 +53,7 @@ function HomePage() {
           color: "#fff",
         },
       });
-    } 
-    else {
+    } else {
       navigate("/generated");
     }
   }
@@ -71,6 +71,7 @@ function HomePage() {
         <div className="address-input-container">
           <img className="icon" src={mapMarkerIcon} alt="Map Marker Icon" />
           <Autocomplete
+            value={location}
             style={{
               fontFamily: "Roboto Condensed",
               fontWeight: "bold",
